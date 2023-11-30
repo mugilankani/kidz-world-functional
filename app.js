@@ -123,20 +123,18 @@ function updatePrice() {
 
 cartButton.onclick = () => {
   updatePrice();
-
+  let message = "";
 
   for (let index = 0; index < items.length; index++) {
     if (items[index].quantity != 0) {
-      console.log(
-        "Item name: " +
+      message += "Item name: " +
           items[index].name +
           " - Quantity: " +
-          items[index].quantity
-      );
+          items[index].quantity + "\n";
     }
   }
 
-  console.log(
-    "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
-  );
+  message += "The total amount is " + finalDollars + "$ and " + finalCents + " cents";
+  const whatsappmessage = encodeURIComponent(message);
+  window.open(`http://wa.me/8072241648?text=${whatsappmessage}` ,'_blank')
 };
